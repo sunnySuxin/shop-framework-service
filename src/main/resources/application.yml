@@ -1,0 +1,16 @@
+server:
+  port: 13200
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:13000/eureka/
+  # 指定status显示为IP+端口
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+# 指定eureka中显示的Application为主机名
+spring:
+  application:
+    name: shop-framework-service
